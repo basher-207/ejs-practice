@@ -8,18 +8,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.use(ejsLayouts);
 
-const tasks = [
-    {
-        content: "testTask1",
-        checked: false
-    },
-    {
-        content: "testTask2",
-        checked: true
-    }
-];
+const tasks = [];
 
-// Routes
 app.get("/", (req, res) => {
     res.render('pages/index', {tasks: tasks});
 });
@@ -45,8 +35,6 @@ app.post("/delete/:index", (req, res) => {
     res.redirect("/");
 });
 
-
-// const server = //start the server
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
     console.log(`Server has been started on port: ${PORT}`);

@@ -4,24 +4,14 @@
   <button type="submit"  class="add-button">Add</button>
 </form>
 <ul>
-  <!-- we should render this list item for each existing task -->
   <% tasks.forEach((task, index) => { %>
   <li class="task-list-container">
-    <!-- whether the checkbox is checked should be defined by the task status -->
-    <!-- user should be able change the task status by checking/unchecking the checkbox -->
     <form action="/checkbox/<%= index %>" method="post">
       <input type="checkbox" name="done" <%= task.checked ? "checked" : "" %> onChange="this.form.submit()"/>
     </form>
-   
-    <!-- the span should have an id defined as 'taskText<index>', 
-      where index is index of a task in array of stored tasks, for example: 'taskText0', 'taskText1', ... -->
-    <!-- if task is done you should apply class 'done' to the span so the text will appear striken througn  -->
-    <span id="taskText<%= index %>" class=<%= task.checked ? "done" : "" %>>
-      <!-- the task text sould be displayed here -->   
+    <span id="taskText<%= index %>" class=<%= task.checked ? "done" : "" %>> 
       <%= task.content %>   
     </span>
-    <!-- add the index parameter to the route defined in action attribute 
-    (so the route will be like '/delete/0', '/delete/1' asn so on) -->
     <form method="POST" action="/delete/<%= index %>" style="display: inline;">
       <button type="submit" class="delete-button">Delete</button>
     </form>
