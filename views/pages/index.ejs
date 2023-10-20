@@ -7,9 +7,9 @@
   <% tasks.forEach((task, index) => { %>
   <li class="task-list-container">
     <form action="/checkbox/<%= index %>" method="post">
-      <input type="checkbox" name="done" <%= task.checked ? "checked" : "" %> onChange="this.form.submit()"/>
+      <input type="checkbox" name="done" <%= task.done ? "checked" : "" %> onChange="this.form.submit()"/>
     </form>
-    <span id="taskText<%= index %>" class=<%= task.checked ? "done" : "" %>> 
+    <span id="taskText<%= index %>" class=<%= task.done ? "done" : "" %>> 
       <%= task.content %>   
     </span>
     <form method="POST" action="/delete/<%= index %>" style="display: inline;">
