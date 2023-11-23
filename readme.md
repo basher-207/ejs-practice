@@ -1,3 +1,4 @@
+# EJS Practice
 # The Template Task: Todo list
 
 ### You have to create a todo list using ejs templates
